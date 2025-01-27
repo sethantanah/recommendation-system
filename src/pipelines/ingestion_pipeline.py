@@ -38,8 +38,8 @@ class IngestionPipeline:
         # Process the batch
         processed_data = models_to_text(batch_data)
 
-        # Generate embeddings
-        texts = [item["text"] for item in processed_data]
+        # # Generate embeddings
+        texts = [item["content"] for item in processed_data]
         embeddings = self.sbert_model.encode(texts)
 
         # Prepare documents for vector store
@@ -55,6 +55,7 @@ class IngestionPipeline:
 
     def run(
         self,
+        collection_name: str,
         page_size: Optional[int] = None,
         start_page: Optional[int] = None,
         end_page: Optional[int] = None,
@@ -68,6 +69,7 @@ class IngestionPipeline:
             end_page: Optional ending page number (inclusive)
         """
         try:
+            self.source_collection = collection_name
             # Get total document count
             total_docs = self.source_db.count_documents(self.source_collection)
             total_pages = math.ceil(total_docs / page_size)

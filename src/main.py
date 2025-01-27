@@ -1,6 +1,7 @@
 from typing_extensions import Annotated
 from fastapi import Depends, FastAPI, HTTPException, Query
-from src.config.dependency import get_mongo_db, get_vector_store
+from src.config.dependency import get_mongo_db, get_settings, get_vector_store
+from src.config.settings import Settings
 from src.database.mongodb_connector import MongoDBConnector
 from src.pipelines.ingestion_pipeline import IngestionPipeline
 from src.database.vector_store import MongoDBVectorStore
@@ -14,6 +15,7 @@ app = FastAPI()
 
 @app.post("/ingest")
 def ingest_data(
+    settings: Annotated[Settings, Depends(get_settings)],
     database: Annotated[MongoDBConnector, Depends(get_mongo_db)],
     vector_store: Annotated[MongoDBVectorStore, Depends(get_vector_store)],
     page_size: int,
@@ -27,7 +29,7 @@ def ingest_data(
         pipeline: IngestionPipeline = IngestionPipeline(
             source_db=database, vector_store=vector_store
         )
-        pipeline.run(page_size, start_page, end_page)
+        pipeline.run(settings.SOURCE_COLLECTION, page_size, start_page, end_page)
         return {"message": "Ingestion pipeline completed successfully."}
     except Exception as e:
         logger.error(f"Error in ingestion pipeline: {e}")

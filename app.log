@@ -1,1 +1,84 @@
 2025-01-27 12:00:22,654 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:37:50,443 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:38:42,383 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:38:43,721 - src.pipelines.ingestion_pipeline - ERROR - Error in batch ingestion pipeline: 'IngestionPipeline' object has no attribute 'source_collection'
+2025-01-27 18:38:43,721 - src.main - ERROR - Error in ingestion pipeline: 'IngestionPipeline' object has no attribute 'source_collection'
+2025-01-27 18:44:53,285 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:44:54,695 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-27 18:44:54,696 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 88 total pages
+2025-01-27 18:44:54,696 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 5
+2025-01-27 18:44:54,696 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-27 18:44:54,705 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 1 (size 5)
+2025-01-27 18:44:54,705 - src.pipelines.ingestion_pipeline - ERROR - Error processing batch on page 1: models_to_text() missing 1 required positional argument: 'data'
+2025-01-27 18:44:54,706 - src.pipelines.ingestion_pipeline - ERROR - Error in batch ingestion pipeline: models_to_text() missing 1 required positional argument: 'data'
+2025-01-27 18:44:54,706 - src.main - ERROR - Error in ingestion pipeline: models_to_text() missing 1 required positional argument: 'data'
+2025-01-27 18:45:37,860 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:45:39,204 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-27 18:45:39,204 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 88 total pages
+2025-01-27 18:45:39,204 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 5
+2025-01-27 18:45:39,204 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-27 18:45:39,213 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 1 (size 5)
+2025-01-27 18:45:39,214 - src.pipelines.ingestion_pipeline - ERROR - Error processing batch on page 1: 'text'
+2025-01-27 18:45:39,214 - src.pipelines.ingestion_pipeline - ERROR - Error in batch ingestion pipeline: 'text'
+2025-01-27 18:45:39,214 - src.main - ERROR - Error in ingestion pipeline: 'text'
+2025-01-27 18:46:58,260 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:46:59,690 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-27 18:46:59,690 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 88 total pages
+2025-01-27 18:46:59,691 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 5
+2025-01-27 18:46:59,691 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-27 18:46:59,700 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 1 (size 5)
+2025-01-27 18:46:59,701 - src.pipelines.ingestion_pipeline - ERROR - Error processing batch on page 1: unsupported operand type(s) for +=: 'int' and 'list'
+2025-01-27 18:46:59,701 - src.pipelines.ingestion_pipeline - ERROR - Error in batch ingestion pipeline: unsupported operand type(s) for +=: 'int' and 'list'
+2025-01-27 18:46:59,701 - src.main - ERROR - Error in ingestion pipeline: unsupported operand type(s) for +=: 'int' and 'list'
+2025-01-27 18:48:04,959 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:48:06,338 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-27 18:48:06,338 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 88 total pages
+2025-01-27 18:48:06,339 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 5
+2025-01-27 18:48:06,339 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-27 18:48:06,348 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 1 (size 5)
+2025-01-27 18:48:06,348 - src.pipelines.ingestion_pipeline - ERROR - Error processing batch on page 1: 'text'
+2025-01-27 18:48:06,348 - src.pipelines.ingestion_pipeline - ERROR - Error in batch ingestion pipeline: 'text'
+2025-01-27 18:48:06,348 - src.main - ERROR - Error in ingestion pipeline: 'text'
+2025-01-27 18:48:26,843 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:48:28,329 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-27 18:48:28,329 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 88 total pages
+2025-01-27 18:48:28,329 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 5
+2025-01-27 18:48:28,329 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-27 18:48:28,338 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 1 (size 5)
+2025-01-27 18:48:28,339 - src.pipelines.ingestion_pipeline - ERROR - Error processing batch on page 1: 'text'
+2025-01-27 18:48:28,339 - src.pipelines.ingestion_pipeline - ERROR - Error in batch ingestion pipeline: 'text'
+2025-01-27 18:48:28,339 - src.main - ERROR - Error in ingestion pipeline: 'text'
+2025-01-27 18:48:59,305 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:49:00,558 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-27 18:49:00,559 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 88 total pages
+2025-01-27 18:49:00,559 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 5
+2025-01-27 18:49:00,559 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-27 18:49:00,568 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 1 (size 5)
+2025-01-27 18:49:00,568 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 1
+2025-01-27 18:49:00,569 - src.pipelines.ingestion_pipeline - INFO - Processing page 2/4
+2025-01-27 18:49:00,578 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 2 (size 5)
+2025-01-27 18:49:00,579 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 2
+2025-01-27 18:49:00,579 - src.pipelines.ingestion_pipeline - INFO - Processing page 3/4
+2025-01-27 18:49:00,588 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 3 (size 5)
+2025-01-27 18:49:00,589 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 3
+2025-01-27 18:49:00,589 - src.pipelines.ingestion_pipeline - INFO - Processing page 4/4
+2025-01-27 18:49:00,598 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 4 (size 5)
+2025-01-27 18:49:00,599 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 4
+2025-01-27 18:49:00,599 - src.pipelines.ingestion_pipeline - INFO - Batch ingestion completed. Total documents processed: 20
+2025-01-27 18:50:14,969 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-27 18:50:16,675 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-27 18:50:16,676 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 88 total pages
+2025-01-27 18:50:16,676 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 5
+2025-01-27 18:50:16,676 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-27 18:50:16,685 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 1 (size 5)
+2025-01-27 18:50:16,685 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 1
+2025-01-27 18:50:16,685 - src.pipelines.ingestion_pipeline - INFO - Processing page 2/4
+2025-01-27 18:50:16,694 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 2 (size 5)
+2025-01-27 18:50:16,695 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 2
+2025-01-27 18:50:16,695 - src.pipelines.ingestion_pipeline - INFO - Processing page 3/4
+2025-01-27 18:50:16,704 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 3 (size 5)
+2025-01-27 18:50:16,704 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 3
+2025-01-27 18:50:16,704 - src.pipelines.ingestion_pipeline - INFO - Processing page 4/4
+2025-01-27 18:50:16,713 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 4 (size 5)
+2025-01-27 18:50:16,713 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 4
+2025-01-27 18:50:16,714 - src.pipelines.ingestion_pipeline - INFO - Batch ingestion completed. Total documents processed: 20

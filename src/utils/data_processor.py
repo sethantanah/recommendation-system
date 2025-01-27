@@ -4,7 +4,7 @@ from src.config.logging import setup_logger
 logger = setup_logger(__name__)
 
 
-def models_to_text(self, data: List[Dict]) -> List[Dict]:
+def models_to_text(data: List[Dict]) -> List[Dict]:
     """Preprocess the data by combining relevant fields into a 'content' field."""
     logger.debug("Preprocessing data...")
 
