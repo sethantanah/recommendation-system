@@ -4,6 +4,7 @@ from src.config.logging import setup_logger
 
 logger = setup_logger(__name__)
 
+
 class MongoDBVectorStore:
     def __init__(self, password: str, database_name: str, vector_collection_name: str):
         """
@@ -28,12 +29,16 @@ class MongoDBVectorStore:
         """
         try:
             result = self.collection.insert_many(vectors)
-            logger.info(f"Inserted {len(result.inserted_ids)} vectors into collection: {self.vector_collection_name}")
+            logger.info(
+                f"Inserted {len(result.inserted_ids)} vectors into collection: {self.vector_collection_name}"
+            )
         except Exception as e:
             logger.error(f"Failed to insert vectors: {e}")
             raise
 
-    def update_vector(self, vector_id: str, metadata: Dict, embedding: Optional[List[float]] = None):
+    def update_vector(
+        self, vector_id: str, metadata: Dict, embedding: Optional[List[float]] = None
+    ):
         """
         Updates a vector document with new metadata and/or embedding.
 
@@ -47,8 +52,7 @@ class MongoDBVectorStore:
                 update_data["embedding"] = embedding
 
             result = self.collection.update_one(
-                {"_id": vector_id},
-                {"$set": update_data}
+                {"_id": vector_id}, {"$set": update_data}
             )
             if result.modified_count > 0:
                 logger.info(f"Updated vector with ID: {vector_id}")
@@ -74,7 +78,9 @@ class MongoDBVectorStore:
             logger.error(f"Failed to delete vector: {e}")
             raise
 
-    def find_similar_vectors(self, query_vector: List[float], top_k: int = 5) -> List[Dict]:
+    def find_similar_vectors(
+        self, query_vector: List[float], top_k: int = 5
+    ) -> List[Dict]:
         """
         Finds similar vectors using cosine similarity.
 
@@ -91,7 +97,7 @@ class MongoDBVectorStore:
                         "path": "embedding",
                         "numCandidates": 100,
                         "limit": top_k,
-                        "index": "vector_index"  # Ensure you have a vector index created
+                        "index": "vector_index",  # Ensure you have a vector index created
                     }
                 }
             ]

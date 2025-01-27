@@ -1,6 +1,8 @@
 from typing import Dict, List
 from src.config.logging import setup_logger
+
 logger = setup_logger(__name__)
+
 
 def models_to_text(self, data: List[Dict]) -> List[Dict]:
     """Preprocess the data by combining relevant fields into a 'content' field."""

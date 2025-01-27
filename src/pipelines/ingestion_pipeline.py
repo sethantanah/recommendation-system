@@ -9,13 +9,11 @@ import math
 logger = setup_logger(__name__)
 
 
-class BatchIngestionPipeline:
+class IngestionPipeline:
     def __init__(
         self,
-        password: str,
-        database_name: str,
-        source_collection: str,
-        vector_collection: str,
+        source_db: MongoDBConnector,
+        vector_store: MongoDBVectorStore,
     ):
         """
         Initializes the batch ingestion pipeline.
@@ -26,12 +24,9 @@ class BatchIngestionPipeline:
             source_collection: Name of the source collection
             vector_collection: Name of the vector collection
         """
-        self.source_db = MongoDBConnector(password, database_name)
-        self.vector_store = MongoDBVectorStore(
-            password, database_name, vector_collection
-        )
+        self.source_db = source_db
+        self.vector_store = vector_store
         self.sbert_model = SBERTModel()
-        self.source_collection = source_collection
 
     def _process_batch(self, batch_data):
         """
@@ -99,7 +94,7 @@ class BatchIngestionPipeline:
                     batch_data = self.source_db.load_collection_with_pagination(
                         self.source_collection,
                         page=current_page,
-                        page_size=self.page_size,
+                        page_size=page_size,
                     )
 
                     if not batch_data:

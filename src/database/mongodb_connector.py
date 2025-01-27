@@ -101,7 +101,7 @@ class MongoDBConnector:
             logger.error(f"Error loading collection '{collection_name}': {e}")
             raise
 
-    def get_all_with_pagination(
+    def load_collection_with_pagination(
         self, collection_name: str, page: int, page_size: int
     ) -> List[Dict]:
         """
@@ -160,4 +160,24 @@ class MongoDBConnector:
             return result.inserted_ids
         except Exception as e:
             logger.error(f"Failed to insert documents: {e}")
+            raise
+
+    def count_documents(self, collection_name: str, filters: Dict = {}) -> int:
+        """
+        Counts the number of documents in the collection.
+
+        :return: The number of documents in the collection.
+        """
+        if self.database is None:
+            logger.error(
+                "Database connection is not established. Call connect() first."
+            )
+            raise Exception("Database connection is not established.")
+
+        try:
+            count = self.database[collection_name].count_documents(filters)
+            logger.info(f"Counted {count} documents in the collection")
+            return count
+        except Exception as e:
+            logger.error(f"Failed to count documents: {e}")
             raise
