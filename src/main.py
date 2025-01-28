@@ -120,7 +120,7 @@ def search_similar_vectors(
         embedding = pipeline.sbert_model.encode([query])[0]
 
         # Search for similar vectors
-        results = vector_store.find_similar_vectors(embedding.tolist(), top_k)
+        results = vector_store.find_similar_vectors(embedding, top_k)
         return {"results": results}
     except Exception as e:
         logger.error(f"Error searching for similar vectors: {e}")

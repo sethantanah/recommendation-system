@@ -82,3 +82,71 @@
 2025-01-27 18:50:16,713 - src.database.mongodb_connector - DEBUG - Fetched 5 documents from page 4 (size 5)
 2025-01-27 18:50:16,713 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 5 documents in page 4
 2025-01-27 18:50:16,714 - src.pipelines.ingestion_pipeline - INFO - Batch ingestion completed. Total documents processed: 20
+2025-01-28 09:22:06,268 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 09:22:07,890 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-28 09:22:07,890 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 44 total pages
+2025-01-28 09:22:07,890 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 10
+2025-01-28 09:22:07,890 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-28 09:22:07,900 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 1 (size 10)
+2025-01-28 09:22:08,375 - src.pipelines.ingestion_pipeline - ERROR - Error processing batch on page 1: 'list' object has no attribute 'tolist'
+2025-01-28 09:22:08,375 - src.pipelines.ingestion_pipeline - ERROR - Error in batch ingestion pipeline: 'list' object has no attribute 'tolist'
+2025-01-28 09:22:08,375 - src.main - ERROR - Error in ingestion pipeline: 'list' object has no attribute 'tolist'
+2025-01-28 09:22:49,131 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 09:22:50,345 - src.database.mongodb_connector - INFO - Counted 440 documents in the collection
+2025-01-28 09:22:50,345 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 440 documents, 44 total pages
+2025-01-28 09:22:50,345 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 10
+2025-01-28 09:22:50,345 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-28 09:22:50,355 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 1 (size 10)
+2025-01-28 09:22:50,685 - src.database.vector_store - INFO - Inserted 10 vectors into collection: model_inventory
+2025-01-28 09:22:50,685 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 10 documents in page 1
+2025-01-28 09:22:50,686 - src.pipelines.ingestion_pipeline - INFO - Processing page 2/4
+2025-01-28 09:22:50,695 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 2 (size 10)
+2025-01-28 09:22:50,993 - src.database.vector_store - INFO - Inserted 10 vectors into collection: model_inventory
+2025-01-28 09:22:50,993 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 10 documents in page 2
+2025-01-28 09:22:50,993 - src.pipelines.ingestion_pipeline - INFO - Processing page 3/4
+2025-01-28 09:22:51,003 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 3 (size 10)
+2025-01-28 09:22:51,372 - src.database.vector_store - INFO - Inserted 10 vectors into collection: model_inventory
+2025-01-28 09:22:51,372 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 10 documents in page 3
+2025-01-28 09:22:51,372 - src.pipelines.ingestion_pipeline - INFO - Processing page 4/4
+2025-01-28 09:22:51,382 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 4 (size 10)
+2025-01-28 09:22:51,643 - src.database.vector_store - INFO - Inserted 10 vectors into collection: model_inventory
+2025-01-28 09:22:51,643 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 10 documents in page 4
+2025-01-28 09:22:51,643 - src.pipelines.ingestion_pipeline - INFO - Batch ingestion completed. Total documents processed: 40
+2025-01-28 09:47:47,223 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 09:47:48,708 - src.database.mongodb_connector - INFO - Counted 480 documents in the collection
+2025-01-28 09:47:48,708 - src.pipelines.ingestion_pipeline - INFO - Starting batch ingestion: 480 documents, 48 total pages
+2025-01-28 09:47:48,708 - src.pipelines.ingestion_pipeline - INFO - Processing pages 1 to 4 with batch size 10
+2025-01-28 09:47:48,709 - src.pipelines.ingestion_pipeline - INFO - Processing page 1/4
+2025-01-28 09:47:48,718 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 1 (size 10)
+2025-01-28 09:47:49,196 - src.database.vector_store - INFO - Inserted 10 vectors into collection: model_inventory_vddb
+2025-01-28 09:47:49,196 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 10 documents in page 1
+2025-01-28 09:47:49,196 - src.pipelines.ingestion_pipeline - INFO - Processing page 2/4
+2025-01-28 09:47:49,206 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 2 (size 10)
+2025-01-28 09:47:49,501 - src.database.vector_store - INFO - Inserted 10 vectors into collection: model_inventory_vddb
+2025-01-28 09:47:49,502 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 10 documents in page 2
+2025-01-28 09:47:49,502 - src.pipelines.ingestion_pipeline - INFO - Processing page 3/4
+2025-01-28 09:47:49,512 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 3 (size 10)
+2025-01-28 09:47:49,762 - src.database.vector_store - INFO - Inserted 10 vectors into collection: model_inventory_vddb
+2025-01-28 09:47:49,763 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 10 documents in page 3
+2025-01-28 09:47:49,763 - src.pipelines.ingestion_pipeline - INFO - Processing page 4/4
+2025-01-28 09:47:49,773 - src.database.mongodb_connector - DEBUG - Fetched 10 documents from page 4 (size 10)
+2025-01-28 09:47:50,050 - src.database.vector_store - INFO - Inserted 10 vectors into collection: model_inventory_vddb
+2025-01-28 09:47:50,050 - src.pipelines.ingestion_pipeline - INFO - Successfully processed 10 documents in page 4
+2025-01-28 09:47:50,050 - src.pipelines.ingestion_pipeline - INFO - Batch ingestion completed. Total documents processed: 40
+2025-01-28 10:05:17,139 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 10:05:18,395 - src.main - ERROR - Error searching for similar vectors: 'list' object has no attribute 'tolist'
+2025-01-28 10:06:29,006 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 10:06:30,606 - src.database.vector_store - ERROR - Failed to find similar vectors: PlanExecutor error during aggregation :: caused by :: vector field is indexed with 1024 dimensions but queried with 384, full error: {'ok': 0.0, 'errmsg': 'PlanExecutor error during aggregation :: caused by :: vector field is indexed with 1024 dimensions but queried with 384', 'code': 8, 'codeName': 'UnknownError', '$clusterTime': {'clusterTime': Timestamp(1738058790, 6), 'signature': {'hash': b'\xe0_|[\x85\x13\t\x02\x8c6\x08t\xca\xf8\xe7\xdc]\xa5\xbaf', 'keyId': 7413839346534449154}}, 'operationTime': Timestamp(1738058790, 6)}
+2025-01-28 10:06:30,606 - src.main - ERROR - Error searching for similar vectors: PlanExecutor error during aggregation :: caused by :: vector field is indexed with 1024 dimensions but queried with 384, full error: {'ok': 0.0, 'errmsg': 'PlanExecutor error during aggregation :: caused by :: vector field is indexed with 1024 dimensions but queried with 384', 'code': 8, 'codeName': 'UnknownError', '$clusterTime': {'clusterTime': Timestamp(1738058790, 6), 'signature': {'hash': b'\xe0_|[\x85\x13\t\x02\x8c6\x08t\xca\xf8\xe7\xdc]\xa5\xbaf', 'keyId': 7413839346534449154}}, 'operationTime': Timestamp(1738058790, 6)}
+2025-01-28 10:18:25,134 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 10:18:26,389 - src.database.vector_store - ERROR - Failed to find similar vectors: cannot encode object: tensor([ 0.6402, -0.4710,  0.2048,  ...,  1.0188,  0.0496, -0.2883],
+       grad_fn=<SelectBackward0>), of type: <class 'torch.Tensor'>
+2025-01-28 10:18:26,389 - src.main - ERROR - Error searching for similar vectors: cannot encode object: tensor([ 0.6402, -0.4710,  0.2048,  ...,  1.0188,  0.0496, -0.2883],
+       grad_fn=<SelectBackward0>), of type: <class 'torch.Tensor'>
+2025-01-28 10:21:54,567 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 10:21:56,171 - src.database.vector_store - INFO - Found 0 similar vectors.
+2025-01-28 10:23:45,662 - src.database.vector_store - INFO - Found 0 similar vectors.
+2025-01-28 10:25:23,777 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 10:25:25,350 - src.database.vector_store - INFO - Found 5 similar vectors.
+2025-01-28 10:26:29,755 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 10:26:30,984 - src.database.vector_store - INFO - Found 5 similar vectors.

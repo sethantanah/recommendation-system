@@ -39,13 +39,14 @@ class IngestionPipeline:
         processed_data = models_to_text(batch_data)
 
         # # Generate embeddings
+        model_ids = [item["_id"] for item in processed_data]
         texts = [item["content"] for item in processed_data]
         embeddings = self.sbert_model.encode(texts)
 
         # Prepare documents for vector store
         vector_docs = [
-            {"text": text, "embedding": embedding.tolist()}
-            for text, embedding in zip(texts, embeddings)
+            {"_id": model_id, "text": text, "embedding": embedding}
+            for model_id, text, embedding in zip(model_ids, texts, embeddings)
         ]
 
         # Store in vector database

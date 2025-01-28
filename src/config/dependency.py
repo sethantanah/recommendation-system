@@ -27,5 +27,5 @@ def get_vector_store(
     return MongoDBVectorStore(
         settings.PASSWORD,
         settings.DATABASE_NAME,
-        settings.SOURCE_COLLECTION
+        settings.VECTOR_COLLECTION
     )
