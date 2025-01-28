@@ -18,9 +18,9 @@ app.add_middleware(
 )
 
 app.include_router(
-    inventory_manager_v1.router, prefix="/api", tags=["inventory_manager_v1"]
+    inventory_manager_v1.router, prefix="/api/inventory_manager_v1", tags=["inventory_manager_v1"]
 )
 app.include_router(
-    inventory_manager_v2.router, prefix="/api", tags=["inventory_manager_v2"]
+    inventory_manager_v2.router, prefix="/api/inventory_manager_v2", tags=["inventory_manager_v2"]
 )
 app.include_router(recommendation.router, prefix="/api", tags=["recommendation"])

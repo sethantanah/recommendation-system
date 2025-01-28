@@ -150,3 +150,21 @@
 2025-01-28 10:25:25,350 - src.database.vector_store - INFO - Found 5 similar vectors.
 2025-01-28 10:26:29,755 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
 2025-01-28 10:26:30,984 - src.database.vector_store - INFO - Found 5 similar vectors.
+2025-01-28 12:05:12,117 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 12:06:00,870 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 12:10:18,740 - src.database.mongodb_connector - DEBUG - Loaded 1 documents from collection: model_inventory
+2025-01-28 12:10:18,740 - src.api.inventory_manager_v2 - ERROR - Error updating vector: 0
+2025-01-28 12:10:57,963 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 12:10:59,856 - src.database.mongodb_connector - DEBUG - Loaded 1 documents from collection: model_inventory
+2025-01-28 12:10:59,857 - src.api.inventory_manager_v2 - ERROR - Error updating vector: 0
+2025-01-28 12:11:10,157 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 12:11:11,487 - src.database.mongodb_connector - DEBUG - Loaded 1 documents from collection: model_inventory
+2025-01-28 12:11:11,552 - src.database.mongodb_connector - INFO - Updated id with ID: BERT-27
+2025-01-28 12:11:11,570 - src.database.mongodb_connector - DEBUG - Loaded 1 documents from collection: model_inventory
+2025-01-28 12:11:11,570 - src.api.inventory_manager_v2 - ERROR - Error updating vector: 0
+2025-01-28 12:12:39,224 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 12:12:40,554 - src.database.mongodb_connector - DEBUG - Loaded 1 documents from collection: model_inventory
+2025-01-28 12:12:40,654 - src.database.mongodb_connector - INFO - Updated id with ID: BERT-27
+2025-01-28 12:16:23,996 - src.database.vector_store - INFO - Found 1 similar vectors.
+2025-01-28 12:58:47,479 - src.database.mongodb_connector - INFO - Connected to database: model_inventory_system
+2025-01-28 12:58:49,372 - src.database.vector_store - INFO - Found 1 similar vectors.

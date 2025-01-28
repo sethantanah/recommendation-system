@@ -77,8 +77,8 @@ def delete_vector(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@router.get("/search")
-def search_similar_vectors(
+@router.get("/usecase-recommendation")
+def usecase_recommendation(
     database: Annotated[MongoDBConnector, Depends(get_mongo_db)],
     vector_store: Annotated[MongoDBVectorStore, Depends(get_vector_store)],
     query: str,
