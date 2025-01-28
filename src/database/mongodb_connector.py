@@ -162,6 +162,25 @@ class MongoDBConnector:
             logger.error(f"Failed to insert documents: {e}")
             raise
 
+    def update_vector(self, collection_name: str, id: str, metadata: Dict):
+        """
+        Updates a vector document with new metadata and/or embedding.
+
+        :param id: The ID of the document to update.
+        :param metadata: New metadata to update.
+        """
+        try:
+            result = self.database[collection_name].update_one(
+                {"_id": id}, {"$set": metadata}
+            )
+            if result.modified_count > 0:
+                logger.info(f"Updated id with ID: {id}")
+            else:
+                logger.warning(f"No id found with ID: {id}")
+        except Exception as e:
+            logger.error(f"Failed to update id: {e}")
+            raise
+
     def count_documents(self, collection_name: str, filters: Dict = {}) -> int:
         """
         Counts the number of documents in the collection.

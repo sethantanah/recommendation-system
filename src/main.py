@@ -1,127 +1,26 @@
-from typing_extensions import Annotated
-from fastapi import Depends, FastAPI, HTTPException, Query
-from src.config.dependency import get_mongo_db, get_settings, get_vector_store
-from src.config.settings import Settings
-from src.database.mongodb_connector import MongoDBConnector
-from src.pipelines.ingestion_pipeline import IngestionPipeline
-from src.database.vector_store import MongoDBVectorStore
-from src.config.logging import setup_logger
-from typing import List, Dict, Optional
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from src.api import inventory_manager_v1, inventory_manager_v2, recommendation
+from src.config import settings
 
-logger = setup_logger(__name__)
+# Initialize settings
+settings = settings.Settings()
 
-app = FastAPI()
+app = FastAPI(title="Application Management API", version="0.1.0")
 
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_credentials=True,
+)
 
-@app.post("/ingest")
-def ingest_data(
-    settings: Annotated[Settings, Depends(get_settings)],
-    database: Annotated[MongoDBConnector, Depends(get_mongo_db)],
-    vector_store: Annotated[MongoDBVectorStore, Depends(get_vector_store)],
-    page_size: int,
-    start_page: int,
-    end_page: int,
-):
-    """
-    Triggers the ingestion pipeline.
-    """
-    try:
-        pipeline: IngestionPipeline = IngestionPipeline(
-            source_db=database, vector_store=vector_store
-        )
-        pipeline.run(settings.SOURCE_COLLECTION, page_size, start_page, end_page)
-        return {"message": "Ingestion pipeline completed successfully."}
-    except Exception as e:
-        logger.error(f"Error in ingestion pipeline: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.post("/vectors")
-def add_vector(
-    vector_store: Annotated[MongoDBVectorStore, Depends(get_vector_store)],
-    text: str,
-    embedding: List[float],
-    metadata: Dict,
-):
-    """
-    Adds a new vector with metadata to the vector store.
-
-    :param text: The text associated with the vector.
-    :param embedding: The vector embedding.
-    :param metadata: Metadata to store with the vector.
-    """
-    try:
-        vector_doc = {"text": text, "embedding": embedding, "metadata": metadata}
-        vector_store.insert_vectors([vector_doc])
-        return {"message": "Vector added successfully."}
-    except Exception as e:
-        logger.error(f"Error adding vector: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.put("/vectors/{vector_id}")
-def update_vector(
-    vector_store: Annotated[MongoDBVectorStore, Depends(get_vector_store)],
-    vector_id: str,
-    metadata: Dict,
-    embedding: Optional[List[float]] = None,
-):
-    """
-    Updates a vector document with new metadata and/or embedding.
-
-    :param vector_id: The ID of the vector document to update.
-    :param metadata: New metadata to update.
-    :param embedding: New embedding to update (optional).
-    """
-    try:
-        vector_store.update_vector(vector_id, metadata, embedding)
-        return {"message": "Vector updated successfully."}
-    except Exception as e:
-        logger.error(f"Error updating vector: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.delete("/vectors/{vector_id}")
-def delete_vector(
-    vector_store: Annotated[MongoDBVectorStore, Depends(get_vector_store)],
-    vector_id: str,
-):
-    """
-    Deletes a vector document by its ID.
-
-    :param vector_id: The ID of the vector document to delete.
-    """
-    try:
-        vector_store.delete_vector(vector_id)
-        return {"message": "Vector deleted successfully."}
-    except Exception as e:
-        logger.error(f"Error deleting vector: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.get("/search")
-def search_similar_vectors(
-    database: Annotated[MongoDBConnector, Depends(get_mongo_db)],
-    vector_store: Annotated[MongoDBVectorStore, Depends(get_vector_store)],
-    query: str,
-    top_k: int = Query(default=5, ge=1, le=20),
-):
-    """
-    Searches for similar vectors in the vector store.
-
-    :param query: The query text.
-    :param top_k: Number of similar vectors to return.
-    """
-    try:
-        # Generate embedding for the query
-        pipeline: IngestionPipeline = IngestionPipeline(
-            source_db=database, vector_store=vector_store
-        )
-        embedding = pipeline.sbert_model.encode([query])[0]
-
-        # Search for similar vectors
-        results = vector_store.find_similar_vectors(embedding, top_k)
-        return {"results": results}
-    except Exception as e:
-        logger.error(f"Error searching for similar vectors: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+app.include_router(
+    inventory_manager_v1.router, prefix="/api", tags=["inventory_manager_v1"]
+)
+app.include_router(
+    inventory_manager_v2.router, prefix="/api", tags=["inventory_manager_v2"]
+)
+app.include_router(recommendation.router, prefix="/api", tags=["recommendation"])

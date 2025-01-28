@@ -28,6 +28,22 @@ class IngestionPipeline:
         self.vector_store = vector_store
         self.sbert_model = SBERTModel()
 
+    def _single_process(self, data: dict):
+        """
+        Process a single data.
+
+        Args:
+            data: List of documents to process
+        """
+        # Process the batch
+        processed_data = models_to_text([data])
+
+        # Generate embeddings
+        texts = [item["content"] for item in processed_data]
+        embeddings = self.sbert_model.encode(texts)
+
+        return embeddings
+
     def _process_batch(self, batch_data):
         """
         Process a single batch of data.
@@ -133,6 +149,9 @@ class IngestionPipeline:
         except Exception as e:
             logger.error(f"Error in batch ingestion pipeline: {e}")
             raise
+
+    def get_embedding(self, data: dict):
+        return self._single_process(data)
 
     def get_progress(self):
         """

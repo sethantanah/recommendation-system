@@ -79,7 +79,10 @@ class MongoDBVectorStore:
             raise
 
     def find_similar_vectors(
-        self, query_vector: List[float], top_k: int = 5
+        self,
+        query_vector: List[float],
+        top_k: int = 5,
+        collection_name: Optional[str] = None,
     ) -> List[Dict]:
         """
         Finds similar vectors using cosine similarity.
@@ -89,6 +92,10 @@ class MongoDBVectorStore:
         :return: List of similar vectors.
         """
         try:
+            if collection_name:
+                collection = self.database[collection_name]
+            else:
+                collection = self.database[self.vector_collection_name]
             # Use MongoDB's $vectorSearch or custom similarity search logic
             pipeline = [
                 {
@@ -101,7 +108,7 @@ class MongoDBVectorStore:
                     }
                 }
             ]
-            results = list(self.collection.aggregate(pipeline))
+            results = list(collection.aggregate(pipeline))
             logger.info(f"Found {len(results)} similar vectors.")
             return results
         except Exception as e:
