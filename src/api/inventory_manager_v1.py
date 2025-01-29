@@ -99,6 +99,9 @@ def usecase_recommendation(
 
         # Search for similar vectors
         results = vector_store.find_similar_vectors(embedding, top_k)
+        for res in results:
+            res["_id"] = str(res["_id"])
+        
         return {"results": results}
     except Exception as e:
         logger.error(f"Error searching for similar vectors: {e}")
